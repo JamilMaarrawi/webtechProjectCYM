@@ -1,0 +1,111 @@
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    background-color: rgb(242, 242, 242);
+    color: rgb(59, 59, 59);
+}
+  
+button {
+    padding: 10px;
+    border-width: 1px;
+    border-radius: 20px;
+    font-size: 105%;
+    background-color: rgb(59, 59, 59);
+    color: #ffffff;
+}
+  
+button:hover {
+    background-color: darkgray;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto;
+      grid-template-rows: 80px auto 64px;
+      grid-template-areas:
+          "h"
+          "m"
+          "f";
+    margin: 0;
+}
+
+header {
+    grid-area: h;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>#Logo {
+    display: flex;
+    align-items: center;
+}
+
+header>#tabs {
+    display: flex;
+    justify-content: center;
+    column-gap: 32px;
+}
+
+header>#about {
+    display: flex;
+}
+
+.about {
+    height: 55px;
+    width: 55px;
+    background-color: rgb(242, 242, 242);
+    border-radius: 50px;
+    border-width: 0px;
+    padding: 0px;
+    margin-right: 5px;
+}
+
+.about:hover {
+    background-color: darkgray;
+}
+
+main {
+    grid-area: m;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(202, 202, 202);
+}
+
+a {
+    color: rgb(59, 59, 59);
+}
+
+ul {
+    padding: 0px;
+    margin: 16px;
+    list-style-type: none;
+}
+
+footer {
+    grid-area: f;
+}
+
+footer>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 32px;
+}
+
+@media only screen and (max-width: 767px) {
+    header #tabs button {
+        display: none;
+    }
+
+    footer {
+        font-size: 70%;
+    }
+}

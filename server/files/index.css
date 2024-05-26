@@ -1,0 +1,76 @@
+@import url(base.css);
+
+.home {
+    width: 100%;
+    position: relative;
+    text-align: left;
+    font-size: 300%;
+    font-weight: 1000;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: white;
+    color: white;
+    text-shadow: 5px 5px 3px black;
+}
+
+.centered {
+    position: absolute;
+    top: 45%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+}
+
+article {
+    background-color: lightgray;
+    border-radius: 16px;
+    padding: 2px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+main>ul{
+    width: 80%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+}
+
+article>img{
+    height: 400px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+a{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 767px) {
+    article img {
+        height: 100px;
+        width: 75px;
+    }
+    
+    .home {
+        font-size: 100%;
+        font-weight: 600;
+        -webkit-text-stroke: 0px;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    article {
+        font-size: 60%;
+    }
+}

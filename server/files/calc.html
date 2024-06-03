@@ -24,9 +24,52 @@
                 <li><button class="about" type="button" onclick="location.href = 'index.html'"><img src="images/about.png" width="40" height="40" /></button></li>
             </ul>
         </header>
+        <nav>
+            <article class="list">
+                <h1>Today's Calories</h1>
+                <ul id="list1">
+                    <li id="total">
+                        <p>Total amount:</p>
+                        <p id="amount" type="number">0 kcal</p>
+                    </li>
+                </ul>
+            </article>
+        </nav>
         <main>
             <!-- empty for now-->
-            You are in calc
+            <article id="calorie">
+                <h1>Calorie Calculator</h1>
+                Write what you ate and the amount in gramm! <br>
+                <textarea id="ate"></textarea><br>
+                <div>
+                    <button id="btn1" type="button" class="btn">Show Nutritions</button>
+                    <button id="btn2" type="button" class="btn">Add to List</button>
+                </div>
+            </article>
+            <article class="BMI">
+                    <div><div>
+                        <h1>Body-Mass-Index Calculator</h1>
+                        <p>Please enter your height and weight to calculate your Body Mass Index (BMI)!</p>
+                    </div>
+                    <div>
+                        <input checked="checked" type="radio" name="set" value="metric">Metric
+                        <input type="radio" name="set" value="imperial">Imperial
+                    </div>
+                    <div>
+                        Height in cm/in   <textarea id="height" placeholder="Height"></textarea>
+                        Weight in kg/lbs   <textarea id="weight" placeholder="Weight"></textarea>
+                    </div>
+                    <div>
+                        Your BMI is:   
+                        <textarea readonly id="result"></textarea>
+                        <button id="btn3" type="button" class="btn">Calculate</button>
+                    </div></div>
+                    <div><img src="https://healthtravelguide.com/wp-content/uploads/2020/06/Body-mass-index-table.png"></div>
+            </article>
+            <article class="sug">
+                <h1>How many Calories should you eat</h1>
+                <br>Coming soon . . . !
+            </article>
         </main>
         <footer>
             <ul>

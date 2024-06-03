@@ -3,8 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const exerciseModel = require('./exercises.js');
 const session = require('express-session');
-const mongoose = require('mongoose');
-const mongoStore = require('connect-mongo');
 
 const app = express();
 
@@ -13,66 +11,6 @@ app.use(bodyParser.json());
 
 // Serve static content in directory 'files'
 app.use(express.static(path.join(__dirname, 'files')));
-
-mongoose.connect('mongodb+srv://jamil:Jamilmsymsy7@cluster.yyqktx3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster');
-
-app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
-    store: mongoStore.create({
-        mongoUrl: 'mongodb+srv://jamil:Jamilmsymsy7@cluster.yyqktx3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
-        collectionName: 'sessions',
-    }),
-    cookie: { secure: true, httpOnly: true }
-}));
-
-const User = mongoose.model('User', {
-    username: String,
-    password: String,
-    data: []
-});
-
-app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-    const newUser = new User({ username, password });
-    try {
-      await newUser.save();
-      res.send('User created successfully');
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Registration failed');
-    }
-});
-
-app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    try {
-      const user = await User.findOne({ username });
-      if (!user || user.password !== password) {
-        return res.status(401).send('Invalid username or password');
-      }
-      req.session.user = user._id;
-      res.send('Login successful');
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Login failed');
-    }
-});
-
-app.get('/data', async (req, res) => {
-    const userId = req.session.user;
-    try {
-      const user = await User.findById(userId);
-      if (!user) {
-        return res.status(404).send('User not found');
-      }
-      res.send(user.data);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Failed to retrieve data');
-    }
-  });
 
 app.get('/calories', async function (req,res) {
     const ate = req.query.ate;

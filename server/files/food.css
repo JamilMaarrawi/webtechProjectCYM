@@ -1,1 +1,62 @@
 @import url(base.css);
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+      grid-template-rows: 80px auto 64px;
+      grid-template-areas:
+          "h h"
+          "n m"
+          "f f";
+    margin: 0;
+}
+
+nav {
+    grid-area: n;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgb(202, 202, 202);
+    padding: 10px;
+}
+
+nav>ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 10px;
+    gap: 15px;
+    list-style-type: none;
+}
+
+nav>ul>li>button {
+    width: 100%;
+    border-radius: 5px;
+}
+
+article>img {
+    border-radius: 12px;
+    width: 30%;
+    object-fit: contain;
+    background-color: white;
+}
+  
+article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: middle;
+    background-color: #b3b3b3;
+    border-radius: 12px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+main {
+    grid-area: m;
+    display: flex;
+    flex-direction: row;
+}
